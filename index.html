@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonas Muth — iOS Developer</title>
+    <meta name="description" content="iOS Developer who ships. 4 apps built and launched solo in 6 months. Swift, SwiftUI, Supabase.">
+    <meta property="og:title" content="Jonas Muth — iOS Developer">
+    <meta property="og:description" content="4 apps built and launched solo in 6 months.">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #09090b;
+            --bg-card: #131316;
+            --bg-card-hover: #1a1a1f;
+            --border: rgba(255,255,255,0.06);
+            --border-hover: rgba(255,255,255,0.12);
+            --white: #fafafa;
+            --text: rgba(255,255,255,0.85);
+            --text-secondary: rgba(255,255,255,0.45);
+            --text-tertiary: rgba(255,255,255,0.25);
+            --accent: #3b82f6;
+            --accent-glow: rgba(59,130,246,0.12);
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            /* App colors */
+            --haul-color: #005A2B;
+            --haul-glow: rgba(52,199,89,0.15);
+            --momio-color: #8A00C4;
+            --momio-glow: rgba(138,0,196,0.15);
+            --woofit-color: #FF9500;
+            --woofit-glow: rgba(255,149,0,0.15);
+            --betterhalf-color: #FF3B30;
+            --betterhalf-glow: rgba(255,59,48,0.15);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ============================================
+           NAV
+           ============================================ */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 16px 0;
+            background: rgba(9,9,11,0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            background: var(--white);
+            color: var(--bg);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(255,255,255,0.1);
+        }
+
+        /* ============================================
+           HERO
+           ============================================ */
+        .hero {
+            padding: 160px 0 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -300px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 520px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px 6px 10px;
+            background: var(--accent-glow);
+            border: 1px solid rgba(59,130,246,0.2);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 28px;
+        }
+
+        .hero-badge-dot {
+            width: 7px;
+            height: 7px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.7); }
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 .gradient {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-desc {
+            font-size: 17px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 36px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: var(--white);
+            color: var(--bg);
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255,255,255,0.1);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card);
+        }
+
+        /* Stats */
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: -1px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        /* Hero visual */
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .app-grid-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            width: 100%;
+            max-width: 360px;
+        }
+
+        .app-icon-hero {
+            aspect-ratio: 1;
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            font-weight: 900;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: default;
+        }
+
+        .app-icon-hero:hover {
+            transform: translateY(-6px) scale(1.02);
+        }
+
+        .app-icon-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 28px;
+            border: 1px solid rgba(255,255,255,0.1);
+            pointer-events: none;
+        }
+
+        .icon-haul {
+            background: linear-gradient(145deg, #005A2B, #00803d);
+            box-shadow: 0 20px 50px rgba(0,90,43,0.3);
+        }
+
+        .icon-momio {
+            background: linear-gradient(145deg, #6B00A3, #A020F0);
+            box-shadow: 0 20px 50px rgba(138,0,196,0.3);
+        }
+
+        .icon-woofit {
+            background: linear-gradient(145deg, #E08600, #FFB340);
+            box-shadow: 0 20px 50px rgba(255,149,0,0.3);
+        }
+
+        .icon-betterhalf {
+            background: linear-gradient(145deg, #D42A20, #FF6259);
+            box-shadow: 0 20px 50px rgba(255,59,48,0.3);
+        }
+
+        .app-icon-hero span {
+            font-size: 14px;
+            font-weight: 700;
+            position: absolute;
+            bottom: 16px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            letter-spacing: -0.2px;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.3);
+        }
+
+        .app-icon-hero .icon-letter {
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            opacity: 0.9;
+            margin-top: -10px;
+        }
+
+        /* ============================================
+           PROJECTS
+           ============================================ */
+        .projects {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .section-label {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            font-size: clamp(32px, 4vw, 44px);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            color: var(--white);
+            margin-bottom: 14px;
+        }
+
+        .section-subtitle {
+            font-size: 17px;
+            color: var(--text-secondary);
+            max-width: 500px;
+            line-height: 1.6;
+            margin-bottom: 56px;
+        }
+
+        .project-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .project-info {
+            padding: 48px 44px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .project-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            width: fit-content;
+            margin-bottom: 20px;
+        }
+
+        .tag-haul { background: var(--haul-glow); color: #34C759; }
+        .tag-momio { background: var(--momio-glow); color: #c77dff; }
+        .tag-woofit { background: var(--woofit-glow); color: #FFB340; }
+        .tag-betterhalf { background: var(--betterhalf-glow); color: #FF6B6B; }
+
+        .project-name {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .project-tagline {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 28px;
+        }
+
+        .tech-pill {
+            padding: 5px 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .project-features {
+            list-style: none;
+            margin-bottom: 28px;
+        }
+
+        .project-features li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            padding: 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .project-features li::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .project-card:nth-child(1) .project-features li::before { background: #34C759; }
+        .project-card:nth-child(2) .project-features li::before { background: #c77dff; }
+        .project-card:nth-child(3) .project-features li::before { background: #FFB340; }
+        .project-card:nth-child(4) .project-features li::before { background: #FF6B6B; }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--white);
+            transition: gap 0.2s;
+        }
+
+        .project-link:hover {
+            gap: 10px;
+        }
+
+        .project-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 360px;
+        }
+
+        .project-visual-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0.08;
+        }
+
+        .project-mockup {
+            position: relative;
+            z-index: 1;
+            width: 200px;
+            height: 410px;
+            background: #0a0a0a;
+            border-radius: 36px;
+            padding: 10px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        .project-mockup-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            color: white;
+        }
+
+        .mockup-haul { background: linear-gradient(160deg, #003d1c, #005A2B, #00803d); }
+        .mockup-momio { background: linear-gradient(160deg, #4a0070, #7B2AB5, #A855F7); }
+        .mockup-woofit { background: linear-gradient(160deg, #995200, #CC7A00, #FFB340); }
+        .mockup-betterhalf { background: linear-gradient(160deg, #991f18, #CC3B30, #FF6B6B); }
+
+        .mockup-icon {
+            font-size: 48px;
+            opacity: 0.9;
+        }
+
+        .mockup-rings {
+            display: flex;
+            gap: 4px;
+        }
+
+        .ring {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.3);
+            position: relative;
+        }
+
+        .ring::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 4px solid transparent;
+        }
+
+        .ring-1::after { border-top-color: #FF3B30; border-right-color: #FF3B30; border-bottom-color: #FF3B30; }
+        .ring-2::after { border-top-color: #34C759; border-right-color: #34C759; }
+        .ring-3::after { border-top-color: #5AC8FA; border-right-color: #5AC8FA; border-bottom-color: #5AC8FA; border-left-color: #5AC8FA; }
+
+        /* ============================================
+           ABOUT
+           ============================================ */
+        .about {
+            padding: 120px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: var(--white);
+            margin-bottom: 20px;
+            line-height: 1.15;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+
+        .about-text p strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .about-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .detail-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 24px 28px;
+            transition: all 0.2s;
+        }
+
+        .detail-card:hover {
+            border-color: var(--border-hover);
+        }
+
+        .detail-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-tertiary);
+            margin-bottom: 10px;
+        }
+
+        .detail-content {
+            font-size: 15px;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .tech-stack-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-stack-item {
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        /* ============================================
+           CTA / CONTACT
+           ============================================ */
+        .contact {
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            bottom: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .contact .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact h2 {
+            font-size: clamp(36px, 5vw, 52px);
+            font-weight: 900;
+            letter-spacing: -2px;
+            color: var(--white);
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .contact p {
+            font-size: 17px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 440px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .contact-btn-primary {
+            background: var(--white);
+            color: var(--bg);
+        }
+
+        .contact-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255,255,255,0.1);
+        }
+
+        .contact-btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .contact-btn-secondary:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card);
+        }
+
+        .contact-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer {
+            padding: 32px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        footer .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: var(--text-tertiary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-secondary);
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 900px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                gap: 60px;
+                text-align: center;
+            }
+
+            .hero-content { max-width: 100%; }
+
+            .hero-ctas { justify-content: center; }
+
+            .hero-stats { justify-content: center; }
+
+            .hero-visual { order: -1; }
+
+            .app-grid-hero { max-width: 280px; margin: 0 auto; }
+
+            .project-card {
+                grid-template-columns: 1fr;
+            }
+
+            .project-visual {
+                min-height: 300px;
+                order: -1;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .nav-links a:not(.nav-cta) {
+                display: none;
+            }
+
+            footer .container {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+
+            .hero h1 { font-size: 40px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 34px; letter-spacing: -1px; }
+
+            .project-info { padding: 32px 24px; }
+
+            .hero-stats { gap: 24px; }
+
+            .hero-ctas { flex-direction: column; }
+
+            .contact-links { flex-direction: column; }
+        }
+
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.05s; }
+        .stagger-2 { transition-delay: 0.1s; }
+        .stagger-3 { transition-delay: 0.15s; }
+        .stagger-4 { transition-delay: 0.2s; }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="container">
+            <a href="#" class="nav-name">Jonas Muth</a>
+            <div class="nav-links">
+                <a href="#projects">Projects</a>
+                <a href="#about">About</a>
+                <a href="#contact" class="nav-cta">Get in touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge fade-up">
+                    <div class="hero-badge-dot"></div>
+                    Open to opportunities in Toronto
+                </div>
+
+                <h1 class="fade-up stagger-1">
+                    I build apps<br>
+                    <span class="gradient">people love.</span>
+                </h1>
+
+                <p class="hero-desc fade-up stagger-2">
+                    iOS developer who ships. 4 apps designed, built, and launched solo in 6 months — from first line of code to App Store.
+                </p>
+
+                <div class="hero-ctas fade-up stagger-3">
+                    <a href="#projects" class="btn-primary">
+                        See my work
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l10-10M7 7h10v10"/></svg>
+                    </a>
+                    <a href="#contact" class="btn-ghost">Contact me</a>
+                </div>
+
+                <div class="hero-stats fade-up stagger-4">
+                    <div class="stat-item">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Apps shipped</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">6 mo</div>
+                        <div class="stat-label">From zero to live</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">Solo</div>
+                        <div class="stat-label">Design to launch</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual fade-up">
+                <div class="app-grid-hero">
+                    <div class="app-icon-hero icon-haul">
+                        <div class="icon-letter">H</div>
+                        <span>Haul</span>
+                    </div>
+                    <div class="app-icon-hero icon-momio">
+                        <div class="icon-letter">M</div>
+                        <span>Momio</span>
+                    </div>
+                    <div class="app-icon-hero icon-woofit">
+                        <div class="icon-letter">W</div>
+                        <span>Woofit</span>
+                    </div>
+                    <div class="app-icon-hero icon-betterhalf">
+                        <div class="icon-letter">B</div>
+                        <span>BetterHalf</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-label fade-up">Projects</div>
+            <h2 class="section-title fade-up">Built, launched, and live.</h2>
+            <p class="section-subtitle fade-up">Every app built from scratch — design, development, backend, App Store submission, and marketing.</p>
+
+            <!-- HAUL -->
+            <div class="project-card fade-up">
+                <div class="project-info">
+                    <div class="project-tag tag-haul">Featured Project</div>
+                    <h3 class="project-name">Haul</h3>
+                    <p class="project-tagline">Fashion discovery platform — Pinterest meets TikTok for fashion. Creators tag exact products they wear, users can find and buy every piece.</p>
+                    <div class="project-tech">
+                        <span class="tech-pill">Swift</span>
+                        <span class="tech-pill">SwiftUI</span>
+                        <span class="tech-pill">Supabase</span>
+                        <span class="tech-pill">AI Detection</span>
+                        <span class="tech-pill">Real-time</span>
+                    </div>
+                    <ul class="project-features">
+                        <li>AI-powered outfit scanning from screenshots</li>
+                        <li>Creator platform with product tagging</li>
+                        <li>Share Extension for instant scanning</li>
+                        <li>1000+ store integrations</li>
+                    </ul>
+                    <a href="https://apps.apple.com/app/id6760585057" class="project-link" target="_blank">
+                        View on App Store
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+                <div class="project-visual">
+                    <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(0,90,43,0.08), rgba(52,199,89,0.05));"></div>
+                    <div class="project-mockup">
+                        <div class="project-mockup-inner mockup-haul">
+                            <div class="mockup-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/></svg>
+                            </div>
+                            <span style="font-size:15px;opacity:0.9;">See it. Scan it. Shop it.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MOMIO -->
+            <div class="project-card fade-up">
+                <div class="project-info">
+                    <div class="project-tag tag-momio">Live on App Store</div>
+                    <h3 class="project-name">Momio</h3>
+                    <p class="project-tagline">Shared event photo albums that fill up automatically. Create an event, share a QR code, and every photo lands in one place — no more asking for photos.</p>
+                    <div class="project-tech">
+                        <span class="tech-pill">Swift</span>
+                        <span class="tech-pill">SwiftUI</span>
+                        <span class="tech-pill">Supabase</span>
+                        <span class="tech-pill">Real-time Sync</span>
+                        <span class="tech-pill">QR Codes</span>
+                    </div>
+                    <ul class="project-features">
+                        <li>Automatic photo sync across all attendees</li>
+                        <li>QR code invitations — join in seconds</li>
+                        <li>Live event albums with photo likes</li>
+                        <li>Friend system and event history</li>
+                    </ul>
+                    <a href="https://apps.apple.com/app/id6758896961" class="project-link" target="_blank">
+                        View on App Store
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+                <div class="project-visual">
+                    <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(138,0,196,0.08), rgba(168,85,247,0.05));"></div>
+                    <div class="project-mockup">
+                        <div class="project-mockup-inner mockup-momio">
+                            <div class="mockup-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/></svg>
+                            </div>
+                            <span style="font-size:15px;opacity:0.9;">Never ask for photos again</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WOOFIT -->
+            <div class="project-card fade-up">
+                <div class="project-info">
+                    <div class="project-tag tag-woofit">Live on App Store</div>
+                    <h3 class="project-name">Woofit</h3>
+                    <p class="project-tagline">Dog health tracker with Apple Watch-style activity rings. Track meals, walks, and care — daily rings keep your dog's health on track.</p>
+                    <div class="project-tech">
+                        <span class="tech-pill">Swift</span>
+                        <span class="tech-pill">SwiftUI</span>
+                        <span class="tech-pill">SwiftData</span>
+                        <span class="tech-pill">CloudKit</span>
+                    </div>
+                    <ul class="project-features">
+                        <li>3 health rings: Move, Nourish, Care</li>
+                        <li>200+ breed database with health profiles</li>
+                        <li>Symptom tracking with vet export</li>
+                        <li>Streak system and body condition scoring</li>
+                    </ul>
+                    <a href="https://apps.apple.com/app/woofit" class="project-link" target="_blank">
+                        View on App Store
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+                <div class="project-visual">
+                    <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(255,149,0,0.08), rgba(255,179,64,0.05));"></div>
+                    <div class="project-mockup">
+                        <div class="project-mockup-inner mockup-woofit">
+                            <div class="mockup-rings">
+                                <div class="ring ring-1"></div>
+                                <div class="ring ring-2"></div>
+                                <div class="ring ring-3"></div>
+                            </div>
+                            <span style="font-size:14px;opacity:0.9;margin-top:8px;">Daily health rings</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BETTERHALF -->
+            <div class="project-card fade-up">
+                <div class="project-info">
+                    <div class="project-tag tag-betterhalf">Live on App Store</div>
+                    <h3 class="project-name">BetterHalf</h3>
+                    <p class="project-tagline">Relationship wellness app with a gamified gesture system. Small daily actions keep your relationship healthy — tracked with a living heart that responds to your care.</p>
+                    <div class="project-tech">
+                        <span class="tech-pill">Swift</span>
+                        <span class="tech-pill">SwiftUI</span>
+                        <span class="tech-pill">SwiftData</span>
+                        <span class="tech-pill">On-Device</span>
+                    </div>
+                    <ul class="project-features">
+                        <li>100+ gesture library across 5 categories</li>
+                        <li>Living heart system with 5 emotional states</li>
+                        <li>Date planner with mood/budget/time filters</li>
+                        <li>10-level progression with smart insights</li>
+                    </ul>
+                    <a href="https://apps.apple.com/app/betterhalf" class="project-link" target="_blank">
+                        View on App Store
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+                <div class="project-visual">
+                    <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(255,59,48,0.08), rgba(255,107,107,0.05));"></div>
+                    <div class="project-mockup">
+                        <div class="project-mockup-inner mockup-betterhalf">
+                            <div class="mockup-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg>
+                            </div>
+                            <span style="font-size:14px;opacity:0.9;">Relationships need care</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text fade-up">
+                    <div class="section-label">About</div>
+                    <h2>Designer, developer, and builder — all in one.</h2>
+                    <p>
+                        I'm Jonas — an iOS developer from Germany who loves building products from scratch. Over the past 6 months, I designed, developed, and shipped <strong>4 iOS apps solo</strong> — handling everything from UI design and architecture to backend infrastructure, App Store optimization, and organic growth.
+                    </p>
+                    <p>
+                        My main project, <strong>Haul</strong>, is a fashion discovery platform that combines Pinterest-style browsing with TikTok creator culture. I built it with Swift/SwiftUI and Supabase, including AI-powered outfit detection and a real-time creator platform.
+                    </p>
+                    <p>
+                        I'm <strong>moving to Toronto in April 2026</strong> and looking for product engineering roles at early-stage startups — where shipping fast and owning the full stack matters.
+                    </p>
+                </div>
+
+                <div class="about-details fade-up stagger-2">
+                    <div class="detail-card">
+                        <div class="detail-label">Tech Stack</div>
+                        <div class="tech-stack-grid">
+                            <span class="tech-stack-item">Swift</span>
+                            <span class="tech-stack-item">SwiftUI</span>
+                            <span class="tech-stack-item">SwiftData</span>
+                            <span class="tech-stack-item">CloudKit</span>
+                            <span class="tech-stack-item">Supabase</span>
+                            <span class="tech-stack-item">PostgreSQL</span>
+                            <span class="tech-stack-item">Git</span>
+                            <span class="tech-stack-item">REST APIs</span>
+                            <span class="tech-stack-item">HTML/CSS/JS</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <div class="detail-label">What I do</div>
+                        <div class="detail-content">
+                            iOS Development, UI/UX Design, Backend Architecture, App Store Optimization, Organic Growth & TikTok Marketing
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <div class="detail-label">Location</div>
+                        <div class="detail-content">
+                            Germany &rarr; Toronto, Canada (April 2026)
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <div class="detail-label">Looking for</div>
+                        <div class="detail-content">
+                            Product / iOS engineering roles at early-stage startups in Toronto
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="fade-up">Let's build<br>something together.</h2>
+            <p class="fade-up stagger-1">Moving to Toronto in April. Open to full-time roles, contract work, and interesting conversations.</p>
+
+            <div class="contact-links fade-up stagger-2">
+                <a href="mailto:jonas.muth@yahoo.de" class="contact-btn contact-btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    jonas.muth@yahoo.de
+                </a>
+                <a href="https://github.com/jonasmuth04-pixel" class="contact-btn contact-btn-secondary" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/jonasmuth" class="contact-btn contact-btn-secondary" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-text">&copy; 2026 Jonas Muth</div>
+            <div class="footer-links">
+                <a href="mailto:jonas.muth@yahoo.de">Email</a>
+                <a href="https://github.com/jonasmuth04-pixel" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/jonasmuth" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCROLL ANIMATIONS -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
