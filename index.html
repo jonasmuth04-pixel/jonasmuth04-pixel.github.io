@@ -4,242 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jonas Muth · Product & Growth</title>
-<meta name="description" content="Growth-trained, self-taught builder. Three iOS apps shipped solo with 500+ users. Product, design, backend and the organic marketing behind them. Based in Toronto since April 2026.">
+<meta name="description" content="Growth-trained, self-taught builder. Three iOS apps shipped solo with 500+ users. Product, design, backend and the organic marketing behind them. Based in Toronto, work-authorized.">
 <meta property="og:title" content="Jonas Muth · Product & Growth">
 <meta property="og:description" content="The growth guy who learned to build the whole thing. Three apps, shipped solo.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Spline+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
-
-<style>
-:root{
-  /* Frame: quiet editorial paper so the app worlds carry the colour */
-  --paper:#F3F2EC;
-  --paper-2:#EAE8DF;
-  --ink:#171611;
-  --ink-70:rgba(23,22,17,.66);
-  --ink-45:rgba(23,22,17,.45);
-  --line:rgba(23,22,17,.16);
-  --line-soft:rgba(23,22,17,.09);
-
-  --cur:#171611;
-  --display:'Bricolage Grotesque',sans-serif;
-  --body:'Spline Sans',-apple-system,BlinkMacSystemFont,sans-serif;
-  --mono:'JetBrains Mono',ui-monospace,monospace;
-  --round:'Baloo 2',sans-serif;
-}
-
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.55;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%}
-::selection{background:var(--ink);color:var(--paper)}
-
-.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
-.mono{font-family:var(--mono);font-weight:500;letter-spacing:.02em}
-.eyebrow{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
-
-:focus-visible{outline:2.5px solid currentColor;outline-offset:3px;border-radius:2px}
-
-/* ============ NAV ============ */
-nav{position:fixed;top:14px;left:0;right:0;z-index:200;transition:color .4s}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:56px;
-  padding:0 12px 0 24px;border-radius:999px;
-  background:color-mix(in srgb,var(--paper) 80%,transparent);
-  backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);
-  border:1px solid var(--line);box-shadow:0 10px 34px rgba(0,0,0,.10);
-  transition:background .4s,border-color .4s}
-.brand{font-family:var(--mono);font-weight:600;font-size:14px;letter-spacing:.04em}
-.brand b{font-weight:600}
-.nav-links{display:flex;align-items:center;gap:30px}
-.nav-links a{font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.03em;opacity:.62;transition:opacity .2s}
-.nav-links a:hover{opacity:1}
-.nav-cta{border:1.5px solid currentColor;border-radius:999px;padding:8px 16px;opacity:1!important}
-
-/* ============ HERO ============ */
-.hero{padding:148px 0 86px;border-bottom:1px solid var(--line)}
-.hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:56px;align-items:end}
-.hero-eyebrow{display:flex;align-items:center;gap:12px;color:var(--ink-70);margin-bottom:30px}
-.hero-eyebrow .tick{width:30px;height:1px;background:var(--ink);opacity:.5}
-.hero h1{font-family:var(--display);font-weight:700;font-size:clamp(40px,6.4vw,82px);line-height:.99;letter-spacing:-.025em}
-.hero h1 em{font-style:italic;font-weight:600}
-.hero h1 .u{text-decoration:underline;text-decoration-thickness:.06em;text-underline-offset:.1em}
-.hero-dek{margin-top:30px;max-width:46ch;font-size:18px;color:var(--ink-70);line-height:1.62}
-.hero-actions{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
-.btn{font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.02em;padding:13px 22px;border-radius:999px;border:1.5px solid var(--ink);transition:transform .18s,background .18s,color .18s;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
-.btn-fill{background:var(--ink);color:var(--paper)}
-.btn-fill:hover{transform:translateY(-2px)}
-.btn-line:hover{background:var(--ink);color:var(--paper)}
-
-.hero-portrait{position:relative}
-.portrait-frame{position:relative;aspect-ratio:4/5;border-radius:140px 140px 18px 18px;overflow:hidden;border:1px solid var(--line);background:var(--paper-2)}
-.portrait-frame img{width:100%;height:100%;object-fit:cover;object-position:center 38%;filter:grayscale(.12) contrast(1.02)}
-.portrait-cap{position:absolute;left:14px;bottom:14px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;background:var(--ink);color:var(--paper);padding:6px 10px;border-radius:6px}
-
-/* fact ledger */
-.ledger{margin-top:66px;border-top:1px solid var(--ink);display:grid;grid-template-columns:repeat(4,1fr)}
-.ledger div{padding:20px 22px 4px 0;border-right:1px solid var(--line-soft)}
-.ledger div:last-child{border-right:0}
-.ledger dt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-45);margin-bottom:8px}
-.ledger dd{font-family:var(--display);font-weight:600;font-size:18px;line-height:1.25}
-
-/* ============ CREDO STRIP ============ */
-.credo{padding:84px 0;border-bottom:1px solid var(--line)}
-.credo-grid{display:grid;grid-template-columns:.4fr .6fr;gap:56px}
-.credo .eyebrow{color:var(--ink-45)}
-.credo h2{font-family:var(--display);font-weight:600;font-size:clamp(24px,3vw,34px);line-height:1.18;letter-spacing:-.015em}
-.credo p{font-size:17px;color:var(--ink-70);line-height:1.7;margin-top:18px;max-width:54ch}
-.credo p strong{color:var(--ink);font-weight:600}
-.credo-side{align-self:start;position:sticky;top:96px}
-
-/* ============ WORLDS INTRO ============ */
-.worlds-head{padding:90px 0 30px;text-align:center}
-.worlds-head .eyebrow{color:var(--ink-45);display:block;margin-bottom:18px}
-.worlds-head h2{font-family:var(--display);font-weight:700;font-size:clamp(30px,4.6vw,56px);letter-spacing:-.02em;line-height:1.02}
-.worlds-head p{max-width:50ch;margin:20px auto 0;color:var(--ink-70);font-size:17px}
-
-/* ============ APP WORLD: shared scaffold ============ */
-.world{padding:108px 0;position:relative;overflow:hidden}
-.world .wrap{position:relative;z-index:2}
-.world-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
-.world-num{font-family:var(--mono);font-size:13px;letter-spacing:.16em;opacity:.6}
-.world-icon{width:64px;height:64px;border-radius:15px;margin:22px 0 26px;box-shadow:0 10px 34px rgba(0,0,0,.18)}
-.world-kicker{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.72}
-.world h3{font-size:clamp(40px,5.4vw,72px);line-height:.96;margin:14px 0 18px}
-.world .lede{font-size:21px;font-weight:500;line-height:1.4;margin-bottom:20px;max-width:24ch}
-.world .body{font-size:16px;line-height:1.7;max-width:46ch;opacity:.92}
-.world .body + .body{margin-top:14px}
-.world-stats{display:flex;gap:30px;flex-wrap:wrap;margin:30px 0 4px}
-.world-stats div{display:flex;flex-direction:column}
-.world-stats b{font-family:var(--round);font-weight:800;font-size:30px;line-height:1}
-.world-stats span{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.66;margin-top:7px}
-.world-haul .world-stats b{color:#FF5A00}
-.pills{display:flex;flex-wrap:wrap;gap:8px;margin:30px 0 30px}
-.pill{font-family:var(--mono);font-size:12px;font-weight:500;padding:6px 12px;border-radius:999px}
-.world-cta{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:14px;font-weight:600;padding:14px 24px;border-radius:999px;transition:transform .18s,gap .2s}
-.world-cta:hover{transform:translateY(-2px);gap:13px}
-.world-cta svg{width:15px;height:15px}
-
-/* real App Store screenshot in each world */
-.shot{display:block;width:330px;max-width:80%;justify-self:center;border-radius:30px;
-  box-shadow:0 44px 100px rgba(0,0,0,.34);will-change:transform}
-.world-momio .shot{border:1px solid rgba(255,255,255,.08)}
-
-/* ---- WORLD: HAUL ---- */
-.world-haul{background:#FFFFFF;color:#171411}
-.world-haul .world-num,.world-haul .world-kicker{color:#FF5A00}
-.world-haul h3{font-family:var(--round);font-weight:800;color:#FF5A00;letter-spacing:-.01em}
-.world-haul .lede{font-family:var(--round);font-weight:700}
-.world-haul .pill{background:#FFF0E6;color:#D94B00}
-.world-haul .world-cta{background:#FF5A00;color:#fff}
-.world-haul .deco{position:absolute;inset:0;z-index:1;background:radial-gradient(1200px 480px at 88% -10%,rgba(255,90,0,.10),transparent 60%)}
-
-/* ---- WORLD: MOMIO ---- */
-.world-momio{background:#0A0810;color:#F3EAFB}
-.world-momio .world-num,.world-momio .world-kicker{color:#D89BFF}
-.world-momio h3{font-family:var(--round);font-weight:800;letter-spacing:-.01em;background:linear-gradient(120deg,#C77DFF,#FF5BD8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.world-momio .lede{font-family:var(--round);font-weight:700;color:#fff}
-.world-momio .body{color:rgba(243,234,251,.8)}
-.world-momio .pill{background:rgba(199,125,255,.14);color:#E0B6FF;border:1px solid rgba(199,125,255,.22)}
-.world-momio .world-cta{background:linear-gradient(120deg,#A855F7,#FF5BD8);color:#fff}
-.world-momio .deco{position:absolute;inset:0;z-index:1;background:
-  radial-gradient(620px 360px at 12% 8%,rgba(168,85,247,.22),transparent 60%),
-  radial-gradient(560px 320px at 92% 92%,rgba(255,91,216,.16),transparent 60%)}
-
-/* ---- WORLD: CODEFOCUS ---- */
-.world-cf{background:#BD5740;color:#FBEEE4}
-.world-cf .world-num,.world-cf .world-kicker{color:#FBEEE4;opacity:.85}
-.world-cf h3{font-family:var(--display);font-weight:700;color:#FFF6EE;letter-spacing:-.02em}
-.world-cf .lede{color:#fff}
-.world-cf .body{color:rgba(251,238,228,.86)}
-.world-cf .pill{background:rgba(255,246,238,.13);color:#FBEEE4;border:1px solid rgba(255,246,238,.24)}
-.world-cf .world-cta{background:#2C1109;color:#FBEEE4}
-.world-cf .deco{position:absolute;inset:0;z-index:1;background:radial-gradient(900px 420px at 90% 0%,rgba(44,17,9,.28),transparent 60%)}
-
-/* ============ ABOUT ============ */
-.about{padding:108px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.about-grid{display:grid;grid-template-columns:.42fr .58fr;gap:60px}
-.about .eyebrow{color:var(--ink-45);display:block;margin-bottom:18px}
-.about h2{font-family:var(--display);font-weight:700;font-size:clamp(28px,3.6vw,42px);letter-spacing:-.02em;line-height:1.06}
-.about-rows{display:flex;flex-direction:column}
-.arow{display:grid;grid-template-columns:170px 1fr;gap:24px;padding:22px 0;border-top:1px solid var(--line)}
-.arow:last-child{border-bottom:1px solid var(--line)}
-.arow dt{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-45);padding-top:3px}
-.arow dd{font-size:16px;line-height:1.7;color:var(--ink)}
-.tags{display:flex;flex-wrap:wrap;gap:8px}
-.tags span{font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:7px;padding:6px 11px;color:var(--ink-70)}
-
-/* ============ CONTACT ============ */
-.contact{padding:120px 0 96px;text-align:center}
-.contact .eyebrow{color:var(--ink-45);display:block;margin-bottom:22px}
-.contact h2{font-family:var(--display);font-weight:700;font-size:clamp(38px,6.4vw,84px);line-height:.98;letter-spacing:-.025em}
-.contact p{max-width:42ch;margin:24px auto 40px;color:var(--ink-70);font-size:18px}
-.contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.clink{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:14px;font-weight:600;padding:14px 22px;border-radius:999px;border:1.5px solid var(--ink);transition:transform .18s,background .18s,color .18s}
-.clink:hover{transform:translateY(-2px);background:var(--ink);color:var(--paper)}
-.clink svg{width:17px;height:17px}
-.clink.primary{background:var(--ink);color:var(--paper)}
-
-footer{padding:30px 0;border-top:1px solid var(--line)}
-.foot{display:flex;align-items:center;justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--ink-45)}
-.foot a{transition:color .2s}.foot a:hover{color:var(--ink)}
-.foot-l{display:flex;gap:20px}
-
-/* ============ CUSTOM CURSOR ============ */
-.cursor-dot,.cursor-ring{position:fixed;top:0;left:0;z-index:9999;pointer-events:none;border-radius:50%;opacity:0;transition:opacity .35s}
-.cursor-dot{width:6px;height:6px;background:var(--cur);margin:-3px 0 0 -3px}
-.cursor-ring{width:36px;height:36px;border:1.5px solid var(--cur);margin:-18px 0 0 -18px;
-  transition:width .26s cubic-bezier(.2,.7,.2,1),height .26s cubic-bezier(.2,.7,.2,1),margin .26s cubic-bezier(.2,.7,.2,1),background .26s,opacity .35s}
-.cursor-ring.hot{width:58px;height:58px;margin:-29px 0 0 -29px;background:color-mix(in srgb,var(--cur) 14%,transparent)}
-.cursor-ring.tap{width:26px;height:26px;margin:-13px 0 0 -13px}
-body.cur-on{cursor:none}
-body.cur-on a,body.cur-on button,body.cur-on .tilt{cursor:none}
-body.cur-on.cur-live .cursor-dot,body.cur-on.cur-live .cursor-ring{opacity:1}
-.mag{will-change:transform}
-.tilt{transition:transform .3s cubic-bezier(.2,.7,.2,1)}
-
-/* ============ MOTION ============ */
-.rise{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
-.rise.in{opacity:1;transform:none}
-.d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}
-
-/* ============ RESPONSIVE ============ */
-@media(max-width:920px){
-  .hero-grid{grid-template-columns:1fr;gap:40px}
-  .hero-portrait{max-width:300px}
-  .ledger{grid-template-columns:1fr 1fr}
-  .ledger div{border-right:0;border-bottom:1px solid var(--line-soft);padding-bottom:16px}
-  .credo-grid,.about-grid{grid-template-columns:1fr;gap:30px}
-  .credo-side{position:static}
-  .world-grid{grid-template-columns:1fr;gap:48px}
-  .phone{order:-1}
-  .nav-links a:not(.nav-cta){display:none}
-}
-@media(max-width:560px){
-  .wrap{padding:0 20px}
-  .hero{padding:120px 0 64px}
-  .hero h1{font-size:33px;line-height:1.06}
-  .hero h1 br{display:none}
-  .ledger{grid-template-columns:1fr}
-  .arow{grid-template-columns:1fr;gap:8px}
-  .foot{flex-direction:column;gap:14px}
-}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .rise{opacity:1;transform:none;transition:none}
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="nav">
+<nav>
   <div class="wrap nav-in">
-    <a href="#top" class="brand">Jonas&nbsp;Muth<b> ·</b> Product&nbsp;&amp;&nbsp;Growth</a>
+    <a href="#top" class="brand">Jonas&nbsp;Muth · Product&nbsp;&amp;&nbsp;Growth</a>
     <div class="nav-links">
       <a href="#work">Work</a>
       <a href="#about">About</a>
@@ -262,13 +41,10 @@ body.cur-on.cur-live .cursor-dot,body.cur-on.cur-live .cursor-ring{opacity:1}
         </div>
       </div>
       <div class="hero-portrait rise d2">
-        <div class="portrait-frame">
-          <img src="profile.jpg" alt="Jonas Muth">
-        </div>
+        <div class="portrait-frame"><img src="profile.jpg" alt="Jonas Muth"></div>
         <div class="portrait-cap mono">JM · Toronto '26</div>
       </div>
     </div>
-
     <dl class="ledger rise">
       <div><dt>Based</dt><dd>Toronto<br>+ work visa</dd></div>
       <div><dt>Background</dt><dd>Business degree<br>+ 3× growth</dd></div>
@@ -281,103 +57,62 @@ body.cur-on.cur-live .cursor-dot,body.cur-on.cur-live .cursor-ring{opacity:1}
 <!-- CREDO -->
 <section class="credo">
   <div class="wrap credo-grid">
-    <div class="credo-side rise">
-      <span class="eyebrow">01 · How I got here</span>
-    </div>
+    <div class="credo-side rise"><span class="eyebrow">01 · How I got here</span></div>
     <div class="rise d1">
       <h2>I loved the growth side: funnels, experiments, finding what moves the needle. But I kept wanting to be closer to the thing itself.</h2>
       <p>Product sits exactly between growth and engineering, so I went all in. When <strong>Claude and Cursor</strong> made building real, I gave myself six months to learn the entire pipeline: ideation, design, Swift, backend, App Store, and the zero-budget marketing that gets an app its first users.</p>
-      <p>It started with an ambitious VC-style bet that taught me <strong>when to pivot</strong>. Then I shipped two more across completely different niches, to learn how to bootstrap, move fast, and grow with no money. I owned every part of all three.</p>
+      <p>It started with an ambitious bet that taught me <strong>when to pivot</strong>. Then I shipped two more across completely different niches, to learn how to bootstrap, move fast, and grow with no money. I owned every part of all three.</p>
     </div>
   </div>
 </section>
 
-<!-- WORLDS INTRO -->
-<section class="worlds-head" id="work">
+<!-- SELECTED WORK -->
+<section class="work" id="work">
   <div class="wrap">
-    <span class="eyebrow rise">02 · Three apps, three worlds</span>
-    <h2 class="rise d1">Each one a different bet.<br>I owned every pixel and every install.</h2>
-    <p class="rise d2">So you don't just read about them. Each section below is built in that app's own design.</p>
-  </div>
-</section>
+    <div class="work-head">
+      <div class="rise">
+        <span class="eyebrow">02 · Selected work</span>
+        <h2>Three apps, shipped solo.</h2>
+      </div>
+      <p class="rise d1">Tap any one to open the full story: why I built it, how it works, and what I learned.</p>
+    </div>
 
-<!-- WORLD 1: HAUL -->
-<section class="world world-haul">
-  <div class="deco"></div>
-  <div class="wrap world-grid">
-    <div class="rise">
-      <div class="world-num">APP 01</div>
-      <img src="haul-icon.png" alt="Haul AI icon" class="world-icon">
-      <div class="world-kicker">Shopping · AI vision · The big bet</div>
-      <h3>Haul AI</h3>
-      <p class="lede">See it. Scan it. Shop it.</p>
-      <p class="body">Haul began as my ambitious bet: a social platform for fashion creators. The traction didn't come, so I pivoted to the utility underneath it: point it at any outfit and AI breaks the whole look down in one pass.</p>
-      <p class="body">That's the part that isn't just Google Lens. Lens reads one item at a time; Haul detects every piece in a full outfit (top, trousers, bag, shoes) at once, with per-item bounding boxes, then matches each to real products across 40,000+ retailers.</p>
-      <p class="body">Where it's heading: every scan teaches Haul a little more about what you actually wear and save. Enough scans and it maps your taste better than any feed, and that taste graph turns Haul into a personal fashion platform built on discovery and recommendation, not search. Multi-item scanning is the wedge; knowing your style is the moat.</p>
-      <p class="body">This is the project that's had my full attention for the last six months, including the marketing.</p>
-      <div class="world-stats">
-        <div><b>6 mo</b><span>all-in</span></div>
-        <div><b>3</b><span>TikTok accounts</span></div>
-        <div><b>100+</b><span>videos</span></div>
-        <div><b>200k+</b><span>views</span></div>
-      </div>
-      <div class="pills">
-        <span class="pill">Swift</span><span class="pill">SwiftUI</span><span class="pill">Supabase</span><span class="pill">AI vision</span><span class="pill">Share Extension</span>
-      </div>
-      <a class="world-cta mag" href="https://apps.apple.com/app/id6760585057" target="_blank" rel="noopener">View on the App Store
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    </div>
-    <div class="rise d1">
-      <img src="screen-haul.png" class="shot tilt" alt="Haul AI screenshot: AI detecting every item in an outfit with per-piece labels">
-    </div>
-  </div>
-</section>
+    <div class="cards">
+      <a class="card rise" href="haul.html">
+        <span class="card-accent" style="background:#FF5A00"></span>
+        <img src="haul-icon.png" alt="Haul AI" class="card-ic">
+        <div>
+          <div class="card-kicker">Shopping · AI vision · The big bet</div>
+          <div class="card-name">Haul AI</div>
+          <p class="card-line">Scan a full outfit, get every piece identified and shoppable. My six-month flagship, with the marketing behind it.</p>
+          <span class="card-go">Read the story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+        <span class="card-arrow">App 01</span>
+      </a>
 
-<!-- WORLD 2: MOMIO -->
-<section class="world world-momio">
-  <div class="deco"></div>
-  <div class="wrap world-grid">
-    <div class="rise">
-      <div class="world-num">APP 02</div>
-      <img src="momio-icon.png" alt="Momio icon" class="world-icon">
-      <div class="world-kicker">Photo &amp; Video · Real-time · My first build</div>
-      <h3>Momio</h3>
-      <p class="lede">Every photo. Every guest. One album.</p>
-      <p class="body">The idea came from a real pain point. Every time I went out with friends at uni, we'd have almost no photos the next day, because everyone's too lazy to share. So I built the live function: create an event, share a link or QR, and every guest's photos and videos land in one shared album as the night happens.</p>
-      <p class="body">Momio was also my first app, the project where I learned what actually matters when you build with AI like Claude Code: where it speeds you up, and where you still have to own the product thinking yourself.</p>
-      <div class="pills">
-        <span class="pill">Swift</span><span class="pill">SwiftUI</span><span class="pill">Supabase</span><span class="pill">Real-time sync</span><span class="pill">QR invites</span>
-      </div>
-      <a class="world-cta mag" href="https://apps.apple.com/app/id6758896961" target="_blank" rel="noopener">View on the App Store
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    </div>
-    <div class="rise d1">
-      <img src="screen-momio.png" class="shot tilt" alt="Momio screenshot: every photo from an event collected into one shared album">
-    </div>
-  </div>
-</section>
+      <a class="card rise d1" href="momio.html">
+        <span class="card-accent" style="background:#C77DFF"></span>
+        <img src="momio-icon.png" alt="Momio" class="card-ic">
+        <div>
+          <div class="card-kicker">Photo &amp; Video · Real-time · My first build</div>
+          <div class="card-name">Momio</div>
+          <p class="card-line">Every photo from a night out, collected into one live shared album. My first app, and how I learned to build with AI.</p>
+          <span class="card-go">Read the story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+        <span class="card-arrow">App 02</span>
+      </a>
 
-<!-- WORLD 3: CODEFOCUS -->
-<section class="world world-cf">
-  <div class="deco"></div>
-  <div class="wrap world-grid">
-    <div class="rise">
-      <div class="world-num">APP 03</div>
-      <img src="codefocus-icon.png" alt="CodeFocus icon" class="world-icon">
-      <div class="world-kicker">Productivity · Developer tool · Shipped &amp; monetized</div>
-      <h3>CodeFocus</h3>
-      <p class="lede">Your feeds stay locked until your AI is working.</p>
-      <p class="body">The anti-distraction app for developers who'd rather their AI did the work. TikTok, Instagram, X, and whatever else eats your day stay blocked. They only unlock while an AI coding agent like Claude Code, Codex or Cursor is actively running on your machine.</p>
-      <p class="body">It was a spontaneous build while Haul was running. I kept catching myself reaching for my phone every time my agents were busy, so I made my own blocker, then shipped it to the App Store, put a subscription on it, and ran the marketing myself.</p>
-      <p class="body">Built around a Mac-to-iPhone Bluetooth link and Apple's Screen Time API. The most technical thing I've shipped.</p>
-      <div class="pills">
-        <span class="pill">Swift</span><span class="pill">SwiftUI</span><span class="pill">Bluetooth LE</span><span class="pill">Screen Time API</span>
-      </div>
-      <a class="world-cta mag" href="https://apps.apple.com/app/id6781040937" target="_blank" rel="noopener">View on the App Store
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    </div>
-    <div class="rise d1">
-      <img src="screen-codefocus.png" class="shot tilt" alt="CodeFocus screenshot: apps unlocked while Claude is working, locking again when the AI stops">
+      <a class="card rise d2" href="codefocus.html">
+        <span class="card-accent" style="background:#BD5740"></span>
+        <img src="codefocus-icon.png" alt="CodeFocus" class="card-ic">
+        <div>
+          <div class="card-kicker">Productivity · Developer tool · Shipped &amp; monetized</div>
+          <div class="card-name">CodeFocus</div>
+          <p class="card-line">Distractions stay locked until your AI agent is working. Built spontaneously, shipped to the App Store, monetized.</p>
+          <span class="card-go">Read the story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+        <span class="card-arrow">App 03</span>
+      </a>
     </div>
   </div>
 </section>
@@ -391,10 +126,10 @@ body.cur-on.cur-live .cursor-dot,body.cur-on.cur-live .cursor-ring{opacity:1}
     </div>
     <dl class="about-rows rise d1">
       <div class="arow"><dt>Background</dt><dd>A business degree and three internships in growth &amp; marketing, running experiments and optimising funnels before I ever wrote a line of Swift.</dd></div>
-      <div class="arow"><dt>Traction</dt><dd>500+ users across the three apps, and 200k+ views from 100+ videos across 3 TikTok accounts, all organic, with zero ad spend.</dd></div>
-      <div class="arow"><dt>What I do now</dt><dd>End-to-end product: ideation, UI/UX, iOS engineering, backend, App Store optimisation, and organic growth, mostly on TikTok, with zero ad budget.</dd></div>
-      <div class="arow"><dt>Toolkit</dt><dd><div class="tags"><span>Swift</span><span>SwiftUI</span><span>Supabase</span><span>CloudKit</span><span>Claude Code</span><span>Cursor</span><span>Figma</span><span>Git</span><span>TikTok growth</span></div></dd></div>
+      <div class="arow"><dt>Traction</dt><dd>500+ users across the three apps, and 200k+ views from 100+ videos across 3 TikTok accounts. All organic, with zero ad spend.</dd></div>
+      <div class="arow"><dt>What I do now</dt><dd>End-to-end product: ideation, UI/UX, iOS engineering, backend, App Store optimisation, and organic growth, mostly on TikTok with zero ad budget.</dd></div>
       <div class="arow"><dt>Work status</dt><dd>I hold a valid Canadian work visa, so I can join a Toronto team right away. No sponsorship needed.</dd></div>
+      <div class="arow"><dt>Toolkit</dt><dd><div class="tags"><span>Swift</span><span>SwiftUI</span><span>Supabase</span><span>CloudKit</span><span>Claude Code</span><span>Cursor</span><span>Figma</span><span>Git</span><span>TikTok growth</span></div></dd></div>
       <div class="arow"><dt>Looking for</dt><dd>A Product or Growth role at an early-stage startup in Toronto, where owning the intersection of product, growth and shipping is the job, not a stretch.</dd></div>
     </dl>
   </div>
@@ -431,122 +166,6 @@ body.cur-on.cur-live .cursor-dot,body.cur-on.cur-live .cursor-ring{opacity:1}
   </div>
 </footer>
 
-<script>
-// scroll reveal
-(function(){
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var els = document.querySelectorAll('.rise');
-  if(reduce){els.forEach(function(e){e.classList.add('in')});return;}
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(en){ if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);} });
-  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-  els.forEach(function(e){io.observe(e)});
-})();
-
-// floating nav pill adopts the colour of the app-world directly behind it
-(function(){
-  var nav = document.getElementById('nav');
-  var navIn = nav.querySelector('.nav-in');
-  var worlds = [
-    {sel:'.world-haul',  fg:'#171411', bg:'rgba(255,255,255,.82)', line:'rgba(23,20,17,.10)'},
-    {sel:'.world-momio', fg:'#F3EAFB', bg:'rgba(12,9,18,.74)',    line:'rgba(243,234,251,.16)'},
-    {sel:'.world-cf',    fg:'#FBEEE4', bg:'rgba(176,72,47,.82)',  line:'rgba(251,238,228,.22)'}
-  ].map(function(w){w.el=document.querySelector(w.sel);return w;});
-  var base={fg:'#171611',bg:'',line:''};
-  function apply(s){
-    nav.style.color=s.fg;
-    navIn.style.background=s.bg||'';
-    navIn.style.borderColor=s.line||'';
-  }
-  function onScroll(){
-    var mid = window.scrollY + 42, active=null;  // sample just under the floating pill
-    worlds.forEach(function(w){
-      if(!w.el)return;
-      var top=w.el.offsetTop, bot=top+w.el.offsetHeight;
-      if(mid>=top && mid<bot) active=w;
-    });
-    apply(active||base);
-  }
-  window.addEventListener('scroll',onScroll,{passive:true});
-  onScroll();
-})();
-
-// custom cursor + magnetic buttons + phone tilt (desktop, motion-on only)
-(function(){
-  var fine = window.matchMedia('(pointer:fine)').matches;
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(!fine || reduce) return;
-
-  var root = document.documentElement;
-  var dot = document.createElement('div'); dot.className='cursor-dot';
-  var ring = document.createElement('div'); ring.className='cursor-ring';
-  document.body.appendChild(dot); document.body.appendChild(ring);
-  document.body.classList.add('cur-on');
-
-  // cursor colour follows the world UNDER the cursor, not the scroll position
-  var cworlds=[
-    {el:document.querySelector('.world-haul'),  cur:'#FF5A00'},
-    {el:document.querySelector('.world-momio'), cur:'#C77DFF'},
-    {el:document.querySelector('.world-cf'),    cur:'#FBEEE4'}
-  ];
-  function setCur(cy){
-    var c='#171611';
-    for(var i=0;i<cworlds.length;i++){
-      var w=cworlds[i]; if(!w.el)continue;
-      var r=w.el.getBoundingClientRect();
-      if(cy>=r.top && cy<r.bottom){c=w.cur;break;}
-    }
-    root.style.setProperty('--cur',c);
-  }
-
-  var mx=window.innerWidth/2, my=window.innerHeight/2, rx=mx, ry=my, live=false;
-  window.addEventListener('mousemove',function(e){
-    mx=e.clientX; my=e.clientY;
-    dot.style.transform='translate('+mx+'px,'+my+'px)';
-    setCur(my);
-    if(!live){live=true; document.body.classList.add('cur-live');}
-  },{passive:true});
-  // cursor stays put while the page scrolls, recompute colour then too
-  window.addEventListener('scroll',function(){setCur(my);},{passive:true});
-  document.addEventListener('mouseleave',function(){document.body.classList.remove('cur-live');live=false;});
-  window.addEventListener('mousedown',function(){ring.classList.add('tap');});
-  window.addEventListener('mouseup',function(){ring.classList.remove('tap');});
-
-  (function loop(){
-    rx+=(mx-rx)*0.18; ry+=(my-ry)*0.18;
-    ring.style.transform='translate('+rx+'px,'+ry+'px)';
-    requestAnimationFrame(loop);
-  })();
-
-  // ring grows over interactive things
-  var hot='a,button,.phone,.shot,input,textarea';
-  document.querySelectorAll(hot).forEach(function(el){
-    el.addEventListener('mouseenter',function(){ring.classList.add('hot');});
-    el.addEventListener('mouseleave',function(){ring.classList.remove('hot');});
-  });
-
-  // magnetic pull on tagged buttons
-  document.querySelectorAll('.mag').forEach(function(el){
-    var strength=0.4;
-    el.addEventListener('mousemove',function(e){
-      var r=el.getBoundingClientRect();
-      var dx=e.clientX-(r.left+r.width/2), dy=e.clientY-(r.top+r.height/2);
-      el.style.transform='translate('+(dx*strength)+'px,'+(dy*strength)+'px)';
-    });
-    el.addEventListener('mouseleave',function(){el.style.transform='';});
-  });
-
-  // phone mocks / screenshots tilt toward the cursor
-  document.querySelectorAll('.world').forEach(function(w){
-    var ph=w.querySelector('.tilt'); if(!ph) return;
-    w.addEventListener('mousemove',function(e){
-      var r=w.getBoundingClientRect();
-      var px=(e.clientX-r.left)/r.width-0.5, py=(e.clientY-r.top)/r.height-0.5;
-      ph.style.transform='perspective(1100px) rotateY('+(px*9)+'deg) rotateX('+(-py*9)+'deg)';
-    });
-    w.addEventListener('mouseleave',function(){ph.style.transform='';});
-  });
-})();
-</script>
+<script src="app.js"></script>
 </body>
 </html>
