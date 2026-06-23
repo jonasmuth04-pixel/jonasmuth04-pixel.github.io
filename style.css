@@ -140,13 +140,18 @@ body.theme-momio .btn-fill{background:linear-gradient(120deg,#A855F7,#FF5BD8);bo
 
 /* phone mockup — bleeds off the bottom edge, straightens on hover */
 .card-stage{position:relative;align-self:stretch;z-index:1}
-.phone{position:absolute;right:7%;top:50%;width:172px;aspect-ratio:9/19.3;padding:8px;border-radius:34px;background:#0b0b0f;
-  box-shadow:0 26px 60px rgba(0,0,0,.42),inset 0 0 0 1.5px rgba(255,255,255,.12);
+/* iPhone 14 mockup */
+.phone{position:absolute;right:7%;top:50%;width:174px;aspect-ratio:1170/2532;padding:9px;border-radius:40px;background:#0b0b0f;
+  box-shadow:0 26px 60px rgba(0,0,0,.42),inset 0 0 0 1.5px rgba(255,255,255,.16),inset 0 0 0 4px #060608;
   transform:translateY(-50%) rotate(-3deg);transform-origin:center;
   transition:transform .4s cubic-bezier(.2,.7,.2,1)}
 .card:hover .phone{transform:translateY(calc(-50% - 8px)) rotate(0deg)}
-.phone img{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:27px;display:block}
-.phone-island{position:absolute;top:19px;left:50%;transform:translateX(-50%);width:78px;height:21px;background:#0b0b0f;border-radius:12px;z-index:3}
+.phone img{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:32px;display:block}
+/* notch */
+.phone-island{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:38%;height:23px;background:#000;border-radius:0 0 14px 14px;z-index:3}
+/* side buttons */
+.phone::before{content:"";position:absolute;left:-2px;top:27%;width:2.5px;height:50px;background:#070709;border-radius:2px 0 0 2px;z-index:1}
+.phone::after{content:"";position:absolute;right:-2px;top:34%;width:2.5px;height:34px;background:#070709;border-radius:0 2px 2px 0;z-index:1}
 
 /* ============ ABOUT ============ */
 .about{padding:108px 0;border-bottom:1px solid var(--line)}
