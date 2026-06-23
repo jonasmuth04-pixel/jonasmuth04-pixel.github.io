@@ -140,20 +140,22 @@ body.theme-momio .btn-fill{background:linear-gradient(120deg,#A855F7,#FF5BD8);bo
 
 /* phone mockup — bleeds off the bottom edge, straightens on hover */
 .card-stage{position:relative;align-self:stretch;z-index:1}
-/* iPhone 14 mockup */
-.phone{position:absolute;right:7%;top:50%;width:186px;aspect-ratio:1170/2532;padding:5px;border-radius:42px;
-  background:#0a0a0c;
-  box-shadow:0 26px 60px rgba(0,0,0,.45),0 0 0 1.5px #2c2c30,inset 0 0 0 1px rgba(255,255,255,.10);
+/* iPhone 14 mockup (starlight body, black screen bezel, classic notch) */
+.phone{position:absolute;right:7%;top:50%;width:188px;aspect-ratio:1170/2532;padding:4px;border-radius:44px;
+  background:linear-gradient(145deg,#f7f7f9,#d6d6db 46%,#eeeef1 74%,#cdcdd3);
+  box-shadow:0 28px 64px rgba(0,0,0,.34),inset 0 0 0 1px rgba(255,255,255,.65);
   transform:translateY(-50%) rotate(-3deg);transform-origin:center;
   transition:transform .4s cubic-bezier(.2,.7,.2,1)}
 .card:hover .phone{transform:translateY(calc(-50% - 8px)) rotate(0deg)}
-.phone img{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:38px;display:block}
-/* notch flush at the top, same colour as the bezel */
-.phone-island{position:absolute;top:5px;left:50%;transform:translateX(-50%);width:40%;height:24px;background:#0a0a0c;border-radius:0 0 16px 16px;z-index:4}
-/* side buttons (left: volume up + down, right: side button) */
-.phone::before{content:"";position:absolute;left:-3px;top:25%;width:3px;height:26px;background:#1c1c20;border-radius:2px 0 0 2px;z-index:-1;
-  box-shadow:0 38px 0 0 #1c1c20}
-.phone::after{content:"";position:absolute;right:-3px;top:32%;width:3px;height:48px;background:#1c1c20;border-radius:0 2px 2px 0;z-index:-1}
+/* black screen surround sits inside the silver body */
+.phone img{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:38px;display:block;
+  box-shadow:0 0 0 3px #0b0b0d}
+/* classic iPhone 14 notch: black pill hanging from the top of the display */
+.phone-island{position:absolute;top:4px;left:50%;transform:translateX(-50%);width:32%;height:21px;background:#0b0b0d;border-radius:0 0 13px 13px;z-index:4}
+/* silver side buttons */
+.phone::before{content:"";position:absolute;left:-2px;top:25%;width:2.5px;height:26px;background:#bfbfc6;border-radius:2px 0 0 2px;z-index:-1;
+  box-shadow:0 36px 0 0 #bfbfc6}
+.phone::after{content:"";position:absolute;right:-2px;top:32%;width:2.5px;height:46px;background:#bfbfc6;border-radius:0 2px 2px 0;z-index:-1}
 
 /* ============ ABOUT ============ */
 .about{padding:108px 0;border-bottom:1px solid var(--line)}
