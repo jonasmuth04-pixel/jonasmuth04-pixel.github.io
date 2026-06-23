@@ -140,12 +140,12 @@ body.theme-momio .btn-fill{background:linear-gradient(120deg,#A855F7,#FF5BD8);bo
 
 /* phone mockup — bleeds off the bottom edge, straightens on hover */
 .card-stage{position:relative;align-self:stretch;z-index:1}
-.phone{position:absolute;right:8%;bottom:-30px;width:206px;aspect-ratio:9/19.3;padding:9px;border-radius:38px;background:#0b0b0f;
-  box-shadow:0 30px 70px rgba(0,0,0,.42),inset 0 0 0 1.6px rgba(255,255,255,.12);
-  transform:rotate(-3deg);transform-origin:bottom center;
+.phone{position:absolute;right:7%;top:50%;width:172px;aspect-ratio:9/19.3;padding:8px;border-radius:34px;background:#0b0b0f;
+  box-shadow:0 26px 60px rgba(0,0,0,.42),inset 0 0 0 1.5px rgba(255,255,255,.12);
+  transform:translateY(-50%) rotate(-3deg);transform-origin:center;
   transition:transform .4s cubic-bezier(.2,.7,.2,1)}
-.card:hover .phone{transform:rotate(0deg) translateY(-10px)}
-.phone img{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:30px;display:block}
+.card:hover .phone{transform:translateY(calc(-50% - 8px)) rotate(0deg)}
+.phone img{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:27px;display:block}
 .phone-island{position:absolute;top:19px;left:50%;transform:translateX(-50%);width:78px;height:21px;background:#0b0b0f;border-radius:12px;z-index:3}
 
 /* ============ ABOUT ============ */
@@ -263,9 +263,9 @@ body.cur-on.cur-live .cursor-dot,body.cur-on.cur-live .cursor-ring{opacity:1}
   .work-head{flex-direction:column;align-items:flex-start}
   .card{grid-template-columns:1fr;min-height:0;padding:34px 28px 0;gap:0;overflow:hidden}
   .card:hover{transform:none}
-  .card-stage{min-height:368px;margin-top:26px}
-  .phone{position:absolute;left:50%;right:auto;bottom:-40px;transform:translateX(-50%) rotate(0);width:208px}
-  .card:hover .phone{transform:translateX(-50%) translateY(-8px)}
+  .card-stage{min-height:400px;margin-top:18px}
+  .phone{position:absolute;left:50%;right:auto;top:50%;bottom:auto;transform:translate(-50%,-50%) rotate(0);width:178px}
+  .card:hover .phone{transform:translate(-50%,-50%) translateY(-8px)}
   .card-arrow{display:none}
   .case-hero{grid-template-columns:1fr;gap:42px}
   .case-shot{order:-1}
