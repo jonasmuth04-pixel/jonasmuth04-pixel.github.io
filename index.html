@@ -113,18 +113,18 @@ nav{position:fixed;top:14px;left:0;right:0;z-index:200;transition:color .4s}
 .world .lede{font-size:21px;font-weight:500;line-height:1.4;margin-bottom:20px;max-width:24ch}
 .world .body{font-size:16px;line-height:1.7;max-width:46ch;opacity:.92}
 .world .body + .body{margin-top:14px}
+.world-stats{display:flex;gap:30px;flex-wrap:wrap;margin:30px 0 4px}
+.world-stats div{display:flex;flex-direction:column}
+.world-stats b{font-family:var(--round);font-weight:800;font-size:30px;line-height:1}
+.world-stats span{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.66;margin-top:7px}
+.world-haul .world-stats b{color:#FF5A00}
 .pills{display:flex;flex-wrap:wrap;gap:8px;margin:30px 0 30px}
 .pill{font-family:var(--mono);font-size:12px;font-weight:500;padding:6px 12px;border-radius:999px}
 .world-cta{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:14px;font-weight:600;padding:14px 24px;border-radius:999px;transition:transform .18s,gap .2s}
 .world-cta:hover{transform:translateY(-2px);gap:13px}
 .world-cta svg{width:15px;height:15px}
 
-/* phone mock */
-.phone{position:relative;justify-self:center;width:282px;aspect-ratio:9/19.2;border-radius:46px;padding:11px;box-shadow:0 40px 90px rgba(0,0,0,.32)}
-.phone-screen{width:100%;height:100%;border-radius:35px;overflow:hidden;position:relative;display:flex;flex-direction:column}
-.notch{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:96px;height:26px;background:#000;border-radius:999px;z-index:5;opacity:.92}
-
-/* real App Store screenshot */
+/* real App Store screenshot in each world */
 .shot{display:block;width:330px;max-width:80%;justify-self:center;border-radius:30px;
   box-shadow:0 44px 100px rgba(0,0,0,.34);will-change:transform}
 .world-momio .shot{border:1px solid rgba(255,255,255,.08)}
@@ -136,15 +136,6 @@ nav{position:fixed;top:14px;left:0;right:0;z-index:200;transition:color .4s}
 .world-haul .lede{font-family:var(--round);font-weight:700}
 .world-haul .pill{background:#FFF0E6;color:#D94B00}
 .world-haul .world-cta{background:#FF5A00;color:#fff}
-.world-haul .phone{background:#1b1714}
-.haul-screen{background:linear-gradient(180deg,#fff 0%,#FFF4EC 100%);align-items:center;justify-content:center;gap:18px;padding:40px 22px}
-.haul-tag{font-family:var(--round);font-weight:800;font-size:46px;color:#FF5A00;line-height:.95;text-align:center}
-.haul-scan{width:150px;height:150px;border:3px dashed #FF5A00;border-radius:26px;position:relative;display:grid;place-items:center}
-.haul-scan span{font-family:var(--round);font-weight:700;color:#FF5A00;font-size:13px}
-.haul-scan::before,.haul-scan::after{content:"";position:absolute;width:24px;height:24px;border:3px solid #FF5A00}
-.haul-scan::before{top:-3px;left:-3px;border-right:0;border-bottom:0;border-radius:8px 0 0 0}
-.haul-scan::after{bottom:-3px;right:-3px;border-left:0;border-top:0;border-radius:0 0 8px 0}
-.haul-chip{font-family:var(--mono);font-size:11px;background:#171411;color:#fff;padding:7px 13px;border-radius:999px}
 .world-haul .deco{position:absolute;inset:0;z-index:1;background:radial-gradient(1200px 480px at 88% -10%,rgba(255,90,0,.10),transparent 60%)}
 
 /* ---- WORLD: MOMIO ---- */
@@ -155,19 +146,6 @@ nav{position:fixed;top:14px;left:0;right:0;z-index:200;transition:color .4s}
 .world-momio .body{color:rgba(243,234,251,.8)}
 .world-momio .pill{background:rgba(199,125,255,.14);color:#E0B6FF;border:1px solid rgba(199,125,255,.22)}
 .world-momio .world-cta{background:linear-gradient(120deg,#A855F7,#FF5BD8);color:#fff}
-.world-momio .phone{background:#16111d}
-.momio-screen{background:#0d0913;padding:0}
-.momio-top{padding:22px 18px 14px;display:flex;align-items:center;justify-content:space-between}
-.momio-ev{font-family:var(--round);font-weight:700;color:#fff;font-size:16px}
-.momio-live{font-family:var(--mono);font-size:9px;color:#FF5BD8;border:1px solid rgba(255,91,216,.5);border-radius:999px;padding:3px 8px;display:flex;align-items:center;gap:5px}
-.momio-live i{width:5px;height:5px;border-radius:50%;background:#FF5BD8}
-.momio-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;padding:0 8px}
-.momio-grid div{aspect-ratio:1;border-radius:7px}
-.mg1{background:linear-gradient(135deg,#7B2AB5,#C77DFF)}.mg2{background:linear-gradient(135deg,#FF5BD8,#A855F7)}
-.mg3{background:linear-gradient(135deg,#5B2A8C,#9B4DEB)}.mg4{background:linear-gradient(135deg,#C77DFF,#FF5BD8)}
-.mg5{background:linear-gradient(135deg,#8A2BE2,#5B2A8C)}.mg6{background:linear-gradient(135deg,#FF5BD8,#7B2AB5)}
-.momio-qr{margin:16px auto 0;width:84px;height:84px;border-radius:14px;background:
-  repeating-conic-gradient(#0d0913 0% 25%,#fff 0% 50%);background-size:14px 14px;border:6px solid #fff}
 .world-momio .deco{position:absolute;inset:0;z-index:1;background:
   radial-gradient(620px 360px at 12% 8%,rgba(168,85,247,.22),transparent 60%),
   radial-gradient(560px 320px at 92% 92%,rgba(255,91,216,.16),transparent 60%)}
@@ -180,14 +158,6 @@ nav{position:fixed;top:14px;left:0;right:0;z-index:200;transition:color .4s}
 .world-cf .body{color:rgba(251,238,228,.86)}
 .world-cf .pill{background:rgba(255,246,238,.13);color:#FBEEE4;border:1px solid rgba(255,246,238,.24)}
 .world-cf .world-cta{background:#2C1109;color:#FBEEE4}
-.world-cf .phone{background:#3a1810}
-.cf-screen{background:#A8482F;padding:26px 18px;color:#FBEEE4;align-items:center;justify-content:center;gap:18px}
-.cf-glass{width:78px;height:104px;display:grid;place-items:center}
-.cf-glass svg{width:78px;height:104px;stroke:#FBEEE4}
-.cf-state{font-family:var(--mono);font-size:11px;text-align:center;line-height:1.9}
-.cf-lock{display:inline-flex;align-items:center;gap:6px;background:#2C1109;color:#FBEEE4;font-family:var(--mono);font-size:10px;padding:6px 11px;border-radius:999px;margin-top:4px}
-.cf-row{font-family:var(--mono);font-size:11px;width:100%;display:flex;align-items:center;justify-content:space-between;padding:9px 12px;border-radius:9px;background:rgba(255,246,238,.1)}
-.cf-row .x{opacity:.6}
 .world-cf .deco{position:absolute;inset:0;z-index:1;background:radial-gradient(900px 420px at 90% 0%,rgba(44,17,9,.28),transparent 60%)}
 
 /* ============ ABOUT ============ */
@@ -227,10 +197,10 @@ footer{padding:30px 0;border-top:1px solid var(--line)}
 .cursor-ring.hot{width:58px;height:58px;margin:-29px 0 0 -29px;background:color-mix(in srgb,var(--cur) 14%,transparent)}
 .cursor-ring.tap{width:26px;height:26px;margin:-13px 0 0 -13px}
 body.cur-on{cursor:none}
-body.cur-on a,body.cur-on button,body.cur-on .phone{cursor:none}
+body.cur-on a,body.cur-on button,body.cur-on .tilt{cursor:none}
 body.cur-on.cur-live .cursor-dot,body.cur-on.cur-live .cursor-ring{opacity:1}
 .mag{will-change:transform}
-.phone{transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+.tilt{transition:transform .3s cubic-bezier(.2,.7,.2,1)}
 
 /* ============ MOTION ============ */
 .rise{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
@@ -343,7 +313,14 @@ body.cur-on.cur-live .cursor-dot,body.cur-on.cur-live .cursor-ring{opacity:1}
       <p class="lede">See it. Scan it. Shop it.</p>
       <p class="body">Haul began as my ambitious bet — a social platform for fashion creators. The traction didn't come, so I pivoted to the utility underneath it: point it at any outfit and AI breaks the whole look down in one pass.</p>
       <p class="body">That's the part that isn't just Google Lens. Lens reads one item at a time; Haul detects every piece in a full outfit — top, trousers, bag, shoes — at once, with per-item bounding boxes, then matches each to real products across 40,000+ retailers.</p>
-      <p class="body">Where it's heading: discovery, not comparison. Multi-item outfit scanning is still an open niche while social commerce races past $1T — so the roadmap builds toward Haul's own product graph, where matches get faster and cheaper at scale.</p>
+      <p class="body">Where it's heading: every scan teaches Haul a little more about what you actually wear and save. Enough scans and it maps your taste better than any feed — and that taste graph turns Haul into a personal fashion platform built on discovery and recommendation, not search. Multi-item scanning is the wedge; knowing your style is the moat.</p>
+      <p class="body">This is the project that's had my full attention for the last six months — including the marketing.</p>
+      <div class="world-stats">
+        <div><b>6 mo</b><span>all-in</span></div>
+        <div><b>3</b><span>TikTok accounts</span></div>
+        <div><b>100+</b><span>videos</span></div>
+        <div><b>200k+</b><span>views</span></div>
+      </div>
       <div class="pills">
         <span class="pill">Swift</span><span class="pill">SwiftUI</span><span class="pill">Supabase</span><span class="pill">AI vision</span><span class="pill">Share Extension</span>
       </div>
@@ -363,11 +340,11 @@ body.cur-on.cur-live .cursor-dot,body.cur-on.cur-live .cursor-ring{opacity:1}
     <div class="rise">
       <div class="world-num">APP 02</div>
       <img src="momio-icon.png" alt="Momio icon" class="world-icon">
-      <div class="world-kicker">Photo &amp; Video · Real-time · Bootstrapped</div>
+      <div class="world-kicker">Photo &amp; Video · Real-time · My first build</div>
       <h3>Momio</h3>
       <p class="lede">Every photo. Every guest. One album.</p>
-      <p class="body">Nobody ever sends you the photos from the night. Momio fixes that: create an event, share a link or QR, and every guest's photos and videos pour into one shared live album automatically — no “send me that pic” ever again.</p>
-      <p class="body">My playground for real-time infrastructure and for testing whether organic TikTok could pull installs with a budget of exactly zero.</p>
+      <p class="body">The idea came from a real pain point. Every time I went out with friends at uni, we'd have almost no photos the next day — everyone's too lazy to share. So I built the live function: create an event, share a link or QR, and every guest's photos and videos land in one shared album as the night happens.</p>
+      <p class="body">Momio was also my first app — the project where I learned what actually matters when you build with AI like Claude Code: where it speeds you up, and where you still have to own the product thinking yourself.</p>
       <div class="pills">
         <span class="pill">Swift</span><span class="pill">SwiftUI</span><span class="pill">Supabase</span><span class="pill">Real-time sync</span><span class="pill">QR invites</span>
       </div>
@@ -387,11 +364,12 @@ body.cur-on.cur-live .cursor-dot,body.cur-on.cur-live .cursor-ring{opacity:1}
     <div class="rise">
       <div class="world-num">APP 03</div>
       <img src="codefocus-icon.png" alt="CodeFocus icon" class="world-icon">
-      <div class="world-kicker">Productivity · Developer tool · Live</div>
+      <div class="world-kicker">Productivity · Developer tool · Shipped &amp; monetized</div>
       <h3>CodeFocus</h3>
       <p class="lede">Your feeds stay locked until your AI is working.</p>
       <p class="body">The anti-distraction app for developers who'd rather their AI did the work. TikTok, Instagram, X — whatever eats your day — stay blocked. They only unlock while an AI coding agent like Claude Code, Codex or Cursor is actively running on your machine.</p>
-      <p class="body">Built around a Mac-to-iPhone Bluetooth link and Apple's Screen Time API. My current bet — and the most technical thing I've shipped.</p>
+      <p class="body">It was a spontaneous build while Haul was running. I kept catching myself reaching for my phone every time my agents were busy — so I made my own blocker, then shipped it to the App Store, put a subscription on it, and ran the marketing myself.</p>
+      <p class="body">Built around a Mac-to-iPhone Bluetooth link and Apple's Screen Time API — the most technical thing I've shipped.</p>
       <div class="pills">
         <span class="pill">Swift</span><span class="pill">SwiftUI</span><span class="pill">Bluetooth LE</span><span class="pill">Screen Time API</span>
       </div>
@@ -399,18 +377,7 @@ body.cur-on.cur-live .cursor-dot,body.cur-on.cur-live .cursor-ring{opacity:1}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
     <div class="rise d1">
-      <div class="phone tilt">
-        <div class="notch"></div>
-        <div class="phone-screen cf-screen">
-          <div class="cf-glass" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12M6 21h12M7 3c0 4 4 5 5 7 1-2 5-3 5-7M7 21c0-4 4-5 5-7 1 2 5 3 5 7"/></svg>
-          </div>
-          <div class="cf-state">Claude Code · idle<br><span class="cf-lock">🔒 distractions locked</span></div>
-          <div class="cf-row"><span>TikTok</span><span class="x">blocked</span></div>
-          <div class="cf-row"><span>Instagram</span><span class="x">blocked</span></div>
-          <div class="cf-row"><span>X</span><span class="x">blocked</span></div>
-        </div>
-      </div>
+      <img src="screen-codefocus.png" class="shot tilt" alt="CodeFocus screenshot — apps unlocked while Claude is working, locking again when the AI stops">
     </div>
   </div>
 </section>
@@ -424,7 +391,7 @@ body.cur-on.cur-live .cursor-dot,body.cur-on.cur-live .cursor-ring{opacity:1}
     </div>
     <dl class="about-rows rise d1">
       <div class="arow"><dt>Background</dt><dd>A business degree and three internships in growth &amp; marketing — running experiments and optimising funnels before I ever wrote a line of Swift.</dd></div>
-      <div class="arow"><dt>Traction</dt><dd>500+ users across the three apps so far — all from organic TikTok and App Store, with zero ad spend.</dd></div>
+      <div class="arow"><dt>Traction</dt><dd>500+ users across the three apps, and 200k+ views from 100+ videos across 3 TikTok accounts — all organic, with zero ad spend.</dd></div>
       <div class="arow"><dt>What I do now</dt><dd>End-to-end product: ideation, UI/UX, iOS engineering, backend, App Store optimisation, and organic growth — mostly on TikTok, with zero ad budget.</dd></div>
       <div class="arow"><dt>Toolkit</dt><dd><div class="tags"><span>Swift</span><span>SwiftUI</span><span>Supabase</span><span>CloudKit</span><span>Claude Code</span><span>Cursor</span><span>Figma</span><span>Git</span><span>TikTok growth</span></div></dd></div>
       <div class="arow"><dt>Looking for</dt><dd>A Product or Growth role at an early-stage startup in Toronto — where owning the intersection of product, growth and shipping is the job, not a stretch.</dd></div>
