@@ -161,6 +161,10 @@ body.theme-momio .btn-fill{background:linear-gradient(120deg,#A855F7,#FF5BD8);bo
 .exp-co{font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:-.01em;color:var(--fg)}
 .exp-tag{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--faint)}
 .exp-desc{font-size:16px;line-height:1.65;color:var(--muted);max-width:62ch}
+.exp-desc strong{color:var(--fg);font-weight:600}
+.exp-metrics{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.exp-metrics span{font-family:var(--mono);font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+.exp-metrics b{font-family:var(--display);font-weight:700;color:var(--fg);font-size:13px}
 .exp-foot{margin-top:28px;font-size:15px;line-height:1.6;color:var(--muted)}
 .exp-foot strong{color:var(--fg);font-weight:600}
 
