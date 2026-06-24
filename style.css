@@ -148,8 +148,8 @@ body.theme-momio .btn-fill{background:linear-gradient(120deg,#A855F7,#FF5BD8);bo
   transition:transform .4s cubic-bezier(.2,.7,.2,1)}
 .card:hover .phone{transform:translateY(calc(-50% - 8px)) rotate(0deg)}
 .phone .frame{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
-.phone .screen{position:absolute;top:2.209%;left:5.088%;width:89.824%;height:95.581%;
-  overflow:hidden;border-radius:13.73% / 6.33%;z-index:2}
+.phone .screen{position:absolute;top:0.672%;left:1.957%;width:95.89%;height:98.559%;
+  overflow:hidden;border-radius:15.1% / 7.16%;z-index:2}
 .phone .screen img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
 
 /* ============ ABOUT ============ */
@@ -199,8 +199,8 @@ body.theme-momio .case-shot,body.theme-cf .case-shot{border:1px solid var(--line
 .case-phone{position:relative;width:300px;max-width:80%;justify-self:center;aspect-ratio:1022/2082;
   filter:drop-shadow(0 34px 74px rgba(0,0,0,.34))}
 .case-phone .frame{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
-.case-phone .screen{position:absolute;top:2.209%;left:5.088%;width:89.824%;height:95.581%;
-  overflow:hidden;border-radius:13.73% / 6.33%;z-index:2}
+.case-phone .screen{position:absolute;top:0.672%;left:1.957%;width:95.89%;height:98.559%;
+  overflow:hidden;border-radius:15.1% / 7.16%;z-index:2}
 .case-phone .screen img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
 
 /* app display fonts */
