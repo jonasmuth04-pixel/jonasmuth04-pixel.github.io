@@ -140,15 +140,17 @@ body.theme-momio .btn-fill{background:linear-gradient(120deg,#A855F7,#FF5BD8);bo
 
 /* phone mockup — bleeds off the bottom edge, straightens on hover */
 .card-stage{position:relative;align-self:stretch;z-index:1}
-/* real iPhone 14 PNG frame; screenshot sits in the screen cutout, frame overlays */
-.phone{position:absolute;right:6%;top:50%;width:206px;aspect-ratio:491/1000;
+/* real iPhone PNG frame (from our App Store screenshot tool); screen is opaque,
+   so the screenshot sits ON TOP, clipped to the measured screen cutout */
+.phone{position:absolute;right:6%;top:50%;width:208px;aspect-ratio:1022/2082;
   transform:translateY(-50%) rotate(-3deg);transform-origin:center;
   filter:drop-shadow(0 26px 50px rgba(0,0,0,.34));
   transition:transform .4s cubic-bezier(.2,.7,.2,1)}
 .card:hover .phone{transform:translateY(calc(-50% - 8px)) rotate(0deg)}
-.phone .screen{position:absolute;top:2.2%;left:5.3%;width:89.4%;height:95.2%;overflow:hidden;border-radius:7% / 3.4%;z-index:1}
+.phone .frame{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.phone .screen{position:absolute;top:2.209%;left:5.088%;width:89.824%;height:95.581%;
+  overflow:hidden;border-radius:13.73% / 6.33%;z-index:2}
 .phone .screen img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
-.phone .frame{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;border-radius:0}
 
 /* ============ ABOUT ============ */
 .about{padding:108px 0;border-bottom:1px solid var(--line)}
