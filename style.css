@@ -42,10 +42,20 @@ body.theme-cf{
 }
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
-  scroll-snap-type:y proximity;scroll-padding-top:84px}
-/* each main section gently snaps into view (proximity = never traps long sections) */
-.hero,.credo,.work,.exp,.about,.contact{scroll-snap-align:start}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;scroll-padding-top:0}
+/* hard pager (homepage only): every section fills the screen, one hard snap per page */
+body.home{scroll-snap-type:y mandatory}
+.home .hero,.home .credo,.home .exp,.home .about,.home .contact,.home .snap-page{
+  min-height:100vh;scroll-snap-align:start;scroll-snap-stop:always;
+  display:flex;flex-direction:column;justify-content:center}
+.home .work{padding:0;border-bottom:0}
+.home .snap-page{padding:74px 0}
+/* trim the content-heavy hero so it fits one page */
+.home .hero{padding:90px 0 40px}
+.home .ledger{margin-top:38px}
+@media(max-width:920px){
+  .home .hero,.home .credo,.home .exp,.home .about,.home .contact,.home .snap-page{min-height:100svh}
+}
 body{font-family:var(--body);background:var(--bg);color:var(--fg);line-height:1.55;overflow-x:hidden;transition:background .3s,color .3s}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
